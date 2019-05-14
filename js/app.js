@@ -7,34 +7,25 @@ var synth = window.speechSynthesis;
 // Learn more about SpeechSynthesis.speak() at https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/speak
 
 var speakButton = document.querySelector("#speak");
-document
-  .querySelector("#nouns")
-  .addEventListener("click", firstNoun);
-document
-  .querySelector("#verbs")
-  .addEventListener("click", firstVerb);
-document
-  .querySelector("#adjectives")
-  .addEventListener("click", firstAdjective);
-document
-  .querySelector("#secondNouns")
-  .addEventListener("click", secondNoun);
+document.querySelector("#nouns").addEventListener("click", firstNoun);
+document.querySelector("#verbs").addEventListener("click", firstVerb);
+document.querySelector("#adjectives").addEventListener("click", firstAdjective);
+document.querySelector("#secondNouns").addEventListener("click", secondNoun);
 document.querySelector("#place").addEventListener("click", firstPlace);
 
-var reset = document.querySelector("reset");
+var reset = document.querySelector("#reset");
 
-document.querySelector('#singleButton').addEventListener("click", singleButtonGame);
-var result = document.querySelector('#display');
+document
+  .querySelector("#singleButton")
+  .addEventListener("click", singleButtonGame);
+var result = document.querySelector("#display");
 
-
-
-  
 var textToSpeak;
-var selectedNoun = '';
-var selectedVerb = '';
-var selectedAdjective = '';
-var selectedNoun = '';
-var selectedPlace = '';
+var selectedNoun = "";
+var selectedVerb = "";
+var selectedAdjective = "";
+var selectedSecondNoun = "";
+var selectedPlace = "";
 
 /* Functions
 -------------------------------------------------- */
@@ -45,27 +36,45 @@ function speakNow(string) {
   synth.speak(utterThis);
 }
 
-// reset.onclick = function(){
-// selectedNoun = '';
-// selectedVerb = '';
-// selectedAdjective = '';
-// selectedNoun = '';
-// selectedPlace = '';
-// textToSpeak = '';
-// }
+function clear(id) {
+  var el = document.getElementById(id);
+
+  if (el) {
+    el.innerHTML = "";
+  }
+}
+
+reset.onclick = function() {
+  selectedNoun = '';
+  selectedVerb = '';
+  selectedAdjective = '';
+  selectedSecondNoun = '';
+  selectedPlace = '';
+  textToSpeak = '';
+  clear("display");
+};
 
 function singleButtonGame() {
-firstNoun();
-firstVerb();
-firstAdjective();
-secondNoun();
-firstPlace();
-setSentence();
-result.textContent = textToSpeak;
-speakNow(textToSpeak);
+  firstNoun();
+  firstVerb();
+  firstAdjective();
+  secondNoun();
+  firstPlace();
+  setSentence();
+  result.textContent = textToSpeak;
+  speakNow(textToSpeak);
 }
 function setSentence() {
-	textToSpeak = selectedNoun + ' ' + selectedVerb + ' ' +  selectedAdjective + ' ' + secondNoun + ' ' + firstPlace;
+  textToSpeak =
+    selectedNoun +
+    " " +
+    selectedVerb +
+    " " +
+    selectedAdjective +
+    " " +
+    selectedSecondNoun +
+    " " +
+    selectedPlace;
 }
 
 function firstNoun() {
@@ -81,11 +90,13 @@ function firstAdjective() {
 }
 
 function secondNoun() {
-  secondNoun = anotherNouns[Math.floor(Math.random() * anotherNouns.length)];
+  selectedSecondNoun =
+    anotherNouns[Math.floor(Math.random() * anotherNouns.length)];
 }
 
 function firstPlace() {
-  firstPlace = placesSettings[Math.floor(Math.random() * placesSettings.length)];
+  selectedPlace =
+    placesSettings[Math.floor(Math.random() * placesSettings.length)];
 }
 
 /* Event Listeners
@@ -93,6 +104,8 @@ function firstPlace() {
 // Onclick handler for the button that speaks the text contained in the above var textToSpeak
 speakButton.onclick = function() {
   setSentence();
+  result.textContent = textToSpeak;
+
   speakNow(textToSpeak);
 };
 
