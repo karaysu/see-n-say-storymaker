@@ -21,15 +21,20 @@ document
   .addEventListener("click", secondNoun);
 document.querySelector("#place").addEventListener("click", firstPlace);
 
+var reset = document.querySelector("reset");
+
+document.querySelector('#singleButton').addEventListener("click", singleButtonGame);
+var result = document.querySelector('#display');
+
+
 
   
-var textToSpeak = selectedNoun;
-
+var textToSpeak;
 var selectedNoun = '';
-var firstVerb = '';
-var firstAdjective = '';
-var secondNoun = '';
-var firstPlace = '';
+var selectedVerb = '';
+var selectedAdjective = '';
+var selectedNoun = '';
+var selectedPlace = '';
 
 /* Functions
 -------------------------------------------------- */
@@ -38,6 +43,26 @@ function speakNow(string) {
   var utterThis = new SpeechSynthesisUtterance(string);
   // Actually speak the text
   synth.speak(utterThis);
+}
+
+// reset.onclick = function(){
+// selectedNoun = '';
+// selectedVerb = '';
+// selectedAdjective = '';
+// selectedNoun = '';
+// selectedPlace = '';
+// textToSpeak = '';
+// }
+
+function singleButtonGame() {
+firstNoun();
+firstVerb();
+firstAdjective();
+secondNoun();
+firstPlace();
+setSentence();
+result.textContent = textToSpeak;
+speakNow(textToSpeak);
 }
 function setSentence() {
 	textToSpeak = selectedNoun + ' ' + selectedVerb + ' ' +  selectedAdjective + ' ' + secondNoun + ' ' + firstPlace;
