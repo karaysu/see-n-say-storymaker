@@ -103,6 +103,7 @@ function firstPlace() {
 -------------------------------------------------- */
 // Onclick handler for the button that speaks the text contained in the above var textToSpeak
 speakButton.onclick = function() {
+  clear("display");
   setSentence();
   result.textContent = textToSpeak;
 

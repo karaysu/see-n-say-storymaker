@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Assignment 1 | COMP1073 Client-Side JavaScript</title>
-	<link rel="stylesheet" href="css/normalize.css" />
-	<link rel="stylesheet" href="css/main.css" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 1 | COMP1073 Client-Side JavaScript</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 
-<body>
-	<h1>Make a Story!</h1>
-	<button id="nouns">Pick the first noun</button>
-	<button id="verbs">Pick the verb</button>
-	<button id="adjectives">Pick the Adjective</button>
-	<button id="secondNouns">Pick another noun</button>
-	<button id="place">Pick a place or setting</button>
-	<button id="singleButton">Make the story with a single button!</button>
-	<button id="speak">Hear your sentence</button>
-	<button id="reset">Reset</button>
+  <body>
+    <h1>Make a Story!</h1>
 
-	<section>
-		<p id="display"></p>
-	</section>
+    <section class="buttons">
+      <div class="selectingWords">
+        <button id="nouns">Pick the first noun</button>
+        <button id="verbs">Pick the verb</button>
+        <button id="adjectives">Pick the Adjective</button>
+        <button id="secondNouns">Pick another noun</button>
+        <button id="place">Pick a place or setting</button>
+        <button id="speak">Hear your sentence</button>
+	  </div>
+	  <section>
+			<p id="display">Your sentence will appear here.</p>
+		  </section>
 
-	<script src="js/app.js"></script>
-</body>
+		  <section class="other buttons"></section>
+      <button id="singleButton">Make the story with a single button!</button>
+
+      <button id="reset">Reset</button>
+
+      
+    </section>
+
+    <script src="js/app.js"></script>
+  </body>
 </html>

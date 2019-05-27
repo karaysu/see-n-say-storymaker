@@ -2,23 +2,43 @@
 /* Assignment 1 | COMP1073 Client-Side JavaScript */
 
 html {
-    background-color: #111;
-}
-h1 {
-    color: white;
-    size: 10rem;
-    text-align: center;
-}
-button {
-    padding: 25px;
-    margin: 5%;
+  background-color: #111;
 }
 
+h1 {
+  color: white;
+  size: 10rem;
+  text-align: center;
+}
+button {
+  width: fit-content;
+  padding: 25px;
+  margin: 4.5%;
+}
+
+
 #speak {
-margin-left: 42%;
+  margin-left: 42%;
+  top: 0;
+}
+
+.other {
+  display: block;
+}
+
+#reset {
+  float: right;
+  padding: 2em;
+  border-radius: 50%;
+}
+h1 {
+  font-family: "Indie Flower", cursive;
+  font-size: 3em;
 }
 
 p {
-    color: #fff;
-    text-align: center;
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  font-family: "Indie Flower", cursive;
 }
